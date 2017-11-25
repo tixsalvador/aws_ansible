@@ -1,0 +1,9 @@
+---
+- hosts: aws
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: aws facts
+    action: ec2_facts
+    debug: msg ='{{ ansible_ec2_instance_type }}'
